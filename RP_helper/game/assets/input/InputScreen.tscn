@@ -1,0 +1,357 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://game/assets/input/scripts/popup_scripts/SpriteCreation.gd" type="Script" id=1]
+[ext_resource path="res://game/assets/input/scripts/Scene.gd" type="Script" id=2]
+[ext_resource path="res://game/assets/input/scripts/CharacterSelection.gd" type="Script" id=3]
+[ext_resource path="res://game/assets/input/scripts/SpriteGallery.gd" type="Script" id=4]
+[ext_resource path="res://game/assets/input/scripts/popup_scripts/CharacterCreation.gd" type="Script" id=5]
+[ext_resource path="res://game/assets/input/scripts/popup_scripts/ButtonMenu.gd" type="Script" id=6]
+
+[node name="InputScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BGPanel" type="PanelContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="BGPanel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 593.0
+
+[node name="SceneAndEverythingElse" type="VBoxContainer" parent="BGPanel/Margin"]
+margin_right = 1010.0
+margin_bottom = 586.0
+
+[node name="Scene" type="PanelContainer" parent="BGPanel/Margin/SceneAndEverythingElse" groups=["Persistent"]]
+margin_right = 1010.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+script = ExtResource( 2 )
+
+[node name="SceneList" type="HBoxContainer" parent="BGPanel/Margin/SceneAndEverythingElse/Scene"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1003.0
+margin_bottom = 43.0
+
+[node name="EverythingElse" type="HBoxContainer" parent="BGPanel/Margin/SceneAndEverythingElse"]
+margin_top = 54.0
+margin_right = 1010.0
+margin_bottom = 586.0
+size_flags_vertical = 3
+
+[node name="Character" type="PanelContainer" parent="BGPanel/Margin/SceneAndEverythingElse/EverythingElse" groups=["Persistent"]]
+margin_right = 164.0
+margin_bottom = 532.0
+rect_min_size = Vector2( 150, 0 )
+size_flags_vertical = 3
+script = ExtResource( 3 )
+
+[node name="CharacterSelection" type="VBoxContainer" parent="BGPanel/Margin/SceneAndEverythingElse/EverythingElse/Character"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 157.0
+margin_bottom = 525.0
+rect_min_size = Vector2( 150, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SpriteGallery" type="PanelContainer" parent="BGPanel/Margin/SceneAndEverythingElse/EverythingElse"]
+margin_left = 168.0
+margin_right = 218.0
+margin_bottom = 532.0
+rect_min_size = Vector2( 50, 0 )
+size_flags_vertical = 3
+script = ExtResource( 4 )
+
+[node name="SpriteList" type="VBoxContainer" parent="BGPanel/Margin/SceneAndEverythingElse/EverythingElse/SpriteGallery"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 43.0
+margin_bottom = 525.0
+
+[node name="Display" type="PanelContainer" parent="BGPanel/Margin/SceneAndEverythingElse/EverythingElse"]
+margin_left = 222.0
+margin_right = 856.0
+margin_bottom = 532.0
+size_flags_horizontal = 3
+
+[node name="DisplaySplit" type="VBoxContainer" parent="BGPanel/Margin/SceneAndEverythingElse/EverythingElse/Display"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 627.0
+margin_bottom = 525.0
+
+[node name="OutputPreview" type="HBoxContainer" parent="BGPanel/Margin/SceneAndEverythingElse/EverythingElse/Display/DisplaySplit"]
+margin_right = 620.0
+margin_bottom = 454.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BGPanel/Margin/SceneAndEverythingElse/EverythingElse/Display/DisplaySplit/OutputPreview"]
+margin_right = 620.0
+margin_bottom = 454.0
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="HBoxContainer" parent="BGPanel/Margin/SceneAndEverythingElse/EverythingElse/Display/DisplaySplit/OutputPreview/VBoxContainer"]
+margin_right = 620.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BGPanel/Margin/SceneAndEverythingElse/EverythingElse/Display/DisplaySplit/OutputPreview/VBoxContainer"]
+margin_top = 54.0
+margin_right = 620.0
+margin_bottom = 454.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SpriteDisplay" type="TextureRect" parent="BGPanel/Margin/SceneAndEverythingElse/EverythingElse/Display/DisplaySplit/OutputPreview/VBoxContainer/HBoxContainer"]
+margin_right = 300.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 300, 300 )
+expand = true
+stretch_mode = 6
+
+[node name="TextEditor" type="PanelContainer" parent="BGPanel/Margin/SceneAndEverythingElse/EverythingElse/Display/DisplaySplit/OutputPreview/VBoxContainer/HBoxContainer"]
+margin_left = 304.0
+margin_right = 620.0
+margin_bottom = 400.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextBox" type="TextEdit" parent="BGPanel/Margin/SceneAndEverythingElse/EverythingElse/Display/DisplaySplit/OutputPreview/VBoxContainer/HBoxContainer/TextEditor"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 309.0
+margin_bottom = 393.0
+wrap_enabled = true
+caret_blink = true
+
+[node name="Control" type="PanelContainer" parent="BGPanel/Margin/SceneAndEverythingElse/EverythingElse/Display/DisplaySplit"]
+margin_top = 458.0
+margin_right = 620.0
+margin_bottom = 518.0
+rect_min_size = Vector2( 0, 60 )
+
+[node name="ControlOptions" type="HBoxContainer" parent="BGPanel/Margin/SceneAndEverythingElse/EverythingElse/Display/DisplaySplit/Control"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 613.0
+margin_bottom = 53.0
+
+[node name="TimeLine" type="PanelContainer" parent="BGPanel/Margin/SceneAndEverythingElse/EverythingElse"]
+margin_left = 860.0
+margin_right = 1010.0
+margin_bottom = 532.0
+rect_min_size = Vector2( 150, 0 )
+
+[node name="PopupManager" type="Node" parent="."]
+
+[node name="CharacterCreation" type="PopupPanel" parent="PopupManager"]
+pause_mode = 2
+margin_left = 370.0
+margin_top = 146.0
+margin_right = 573.0
+margin_bottom = 242.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="PopupManager/CharacterCreation"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 199.0
+margin_bottom = 92.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupManager/CharacterCreation/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 188.0
+margin_bottom = 81.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="PopupManager/CharacterCreation/PanelContainer/VBoxContainer"]
+margin_top = 16.0
+margin_right = 181.0
+margin_bottom = 30.0
+text = "Enter Character Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameEnter" type="LineEdit" parent="PopupManager/CharacterCreation/PanelContainer/VBoxContainer"]
+margin_top = 34.0
+margin_right = 181.0
+margin_bottom = 58.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpriteCreation" type="PopupPanel" parent="PopupManager" groups=["Persist"]]
+pause_mode = 2
+margin_left = 48.0
+margin_top = 88.0
+margin_right = 976.0
+margin_bottom = 488.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="PopupManager/SpriteCreation"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 924.0
+margin_bottom = 396.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupManager/SpriteCreation/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 913.0
+margin_bottom = 385.0
+
+[node name="SpriteUpload" type="PanelContainer" parent="PopupManager/SpriteCreation/PanelContainer/HBoxContainer"]
+margin_right = 451.0
+margin_bottom = 378.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupManager/SpriteCreation/PanelContainer/HBoxContainer/SpriteUpload"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 444.0
+margin_bottom = 371.0
+
+[node name="UploadPrompt" type="Label" parent="PopupManager/SpriteCreation/PanelContainer/HBoxContainer/SpriteUpload/VBoxContainer"]
+margin_right = 437.0
+margin_bottom = 14.0
+text = "Upload Sprite"
+
+[node name="PanelContainer" type="PanelContainer" parent="PopupManager/SpriteCreation/PanelContainer/HBoxContainer/SpriteUpload/VBoxContainer"]
+margin_top = 18.0
+margin_right = 437.0
+margin_bottom = 364.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupManager/SpriteCreation/PanelContainer/HBoxContainer/SpriteUpload/VBoxContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 430.0
+margin_bottom = 339.0
+
+[node name="PathPrompt" type="Label" parent="PopupManager/SpriteCreation/PanelContainer/HBoxContainer/SpriteUpload/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_right = 423.0
+margin_bottom = 14.0
+text = "File Path"
+
+[node name="SpritePath" type="LineEdit" parent="PopupManager/SpriteCreation/PanelContainer/HBoxContainer/SpriteUpload/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 423.0
+margin_bottom = 42.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NamePrompt" type="Label" parent="PopupManager/SpriteCreation/PanelContainer/HBoxContainer/SpriteUpload/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 46.0
+margin_right = 423.0
+margin_bottom = 60.0
+text = "Sprite Name"
+
+[node name="SpriteName" type="LineEdit" parent="PopupManager/SpriteCreation/PanelContainer/HBoxContainer/SpriteUpload/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 64.0
+margin_right = 423.0
+margin_bottom = 88.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EmoteChoose" type="PanelContainer" parent="PopupManager/SpriteCreation/PanelContainer/HBoxContainer"]
+margin_left = 455.0
+margin_right = 906.0
+margin_bottom = 378.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupManager/SpriteCreation/PanelContainer/HBoxContainer/EmoteChoose"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 444.0
+margin_bottom = 371.0
+
+[node name="EmotePrompt" type="Label" parent="PopupManager/SpriteCreation/PanelContainer/HBoxContainer/EmoteChoose/VBoxContainer"]
+margin_right = 437.0
+margin_bottom = 14.0
+text = "Choose Emote"
+
+[node name="EmoteList" type="GridContainer" parent="PopupManager/SpriteCreation/PanelContainer/HBoxContainer/EmoteChoose/VBoxContainer"]
+margin_top = 18.0
+margin_right = 437.0
+margin_bottom = 340.0
+size_flags_vertical = 3
+columns = 6
+
+[node name="Buttons" type="HBoxContainer" parent="PopupManager/SpriteCreation/PanelContainer/HBoxContainer/EmoteChoose/VBoxContainer"]
+margin_top = 344.0
+margin_right = 437.0
+margin_bottom = 364.0
+alignment = 2
+
+[node name="Create" type="Button" parent="PopupManager/SpriteCreation/PanelContainer/HBoxContainer/EmoteChoose/VBoxContainer/Buttons"]
+margin_left = 326.0
+margin_right = 379.0
+margin_bottom = 20.0
+text = "Create"
+
+[node name="Cancel" type="Button" parent="PopupManager/SpriteCreation/PanelContainer/HBoxContainer/EmoteChoose/VBoxContainer/Buttons"]
+margin_left = 383.0
+margin_right = 437.0
+margin_bottom = 20.0
+text = "Cancel"
+
+[node name="ButtonMenu" type="PopupMenu" parent="PopupManager"]
+margin_left = 312.0
+margin_top = 96.0
+margin_right = 392.0
+margin_bottom = 136.0
+script = ExtResource( 6 )
+
+[node name="Delete" type="Button" parent="PopupManager/ButtonMenu"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 72.0
+margin_bottom = 28.0
+text = "Delete"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="display_sprite" from="BGPanel/Margin/SceneAndEverythingElse/EverythingElse/SpriteGallery" to="BGPanel/Margin/SceneAndEverythingElse/Scene" method="_on_SpriteGallery_display_sprite"]
+[connection signal="cursor_changed" from="BGPanel/Margin/SceneAndEverythingElse/EverythingElse/Display/DisplaySplit/OutputPreview/VBoxContainer/HBoxContainer/TextEditor/TextBox" to="BGPanel/Margin/SceneAndEverythingElse/Scene" method="_on_TextBox_cursor_changed"]
+[connection signal="text_changed" from="BGPanel/Margin/SceneAndEverythingElse/EverythingElse/Display/DisplaySplit/OutputPreview/VBoxContainer/HBoxContainer/TextEditor/TextBox" to="BGPanel/Margin/SceneAndEverythingElse/Scene" method="_on_TextBox_text_changed"]
+[connection signal="text_entered" from="PopupManager/CharacterCreation/PanelContainer/VBoxContainer/NameEnter" to="PopupManager/CharacterCreation" method="_on_NameEnter_text_entered"]
+[connection signal="pressed" from="PopupManager/SpriteCreation/PanelContainer/HBoxContainer/EmoteChoose/VBoxContainer/Buttons/Create" to="PopupManager/SpriteCreation" method="_on_Create_pressed"]
+[connection signal="pressed" from="PopupManager/SpriteCreation/PanelContainer/HBoxContainer/EmoteChoose/VBoxContainer/Buttons/Cancel" to="PopupManager/SpriteCreation" method="_on_Cancel_pressed"]
+[connection signal="pressed" from="PopupManager/ButtonMenu/Delete" to="PopupManager/ButtonMenu" method="_on_Delete_pressed"]

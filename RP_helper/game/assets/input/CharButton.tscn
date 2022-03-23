@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://game/assets/input/scripts/CharButton.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+[node name="CharButton" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -880.0
+margin_bottom = -568.0
+rect_min_size = Vector2( 144, 32 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharName" type="Label" parent="."]
+margin_left = 30.0
+margin_top = 7.0
+margin_right = 114.0
+margin_bottom = 25.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="mouse_entered" from="." to="." method="_on_CharButton_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_CharButton_mouse_exited"]
